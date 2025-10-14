@@ -25,7 +25,5 @@ Gem::Specification.new do |spec|
   spec.add_dependency "rails", ">= 8.0.3"
   spec.add_development_dependency "rspec-rails", "~> 8.0.2"
   spec.add_development_dependency "factory_bot_rails", "~> 6.5.1"
-  spec.add_development_dependency "shoulda-matchers", "~> 6.5.0"
   spec.add_development_dependency "simplecov", "~> 0.22.0"
-  spec.add_development_dependency "annotate"
 end
