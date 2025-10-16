@@ -1,14 +1,15 @@
 # frozen_string_literal: true
 
 require "spec_helper"
-require "tiny_paginate/page"
 
 RSpec.describe TinyPaginate::Page do
   it "is expected to return the correct page attributes" do
-    page = TinyPaginate::Page.new(page_number: 1, collection: Recording.all)
+    records = 110.times { FactoryBot.build_list(:recording, 110) }
     debugger
+    page = TinyPaginate::Page.new(page_number: 1, collection: records)
+
     expect(page.page_number).to eq 1
-    expect(page.collections).to eq Recording.all
+    expect(page.collection).to eq records
   end
 
   # it "is expected to return correct number of records" do
