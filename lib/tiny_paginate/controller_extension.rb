@@ -1,5 +1,5 @@
 module TinyPaginate
-  class Controller
+  class ControllerExtension
     private
     def set_page_and_extract_portion_from(collection)
       @page = TinyPaginate::Page.new(page_number: page_number_param, collection: collection)
