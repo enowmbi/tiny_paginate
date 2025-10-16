@@ -7,7 +7,7 @@ module TinyPaginate
       @collection = collection
     end
 
-    def recordings
+    def records
       collection.offset(offset).limit(TinyPaginate.max_records_per_page)
     end
 

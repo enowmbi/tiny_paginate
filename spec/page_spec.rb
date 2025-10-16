@@ -1,27 +1,83 @@
 # frozen_string_literal: true
 
 require "spec_helper"
-require "tiny_paginate/page"
 
 RSpec.describe TinyPaginate::Page do
   it "is expected to return the correct page attributes" do
-    page = TinyPaginate::Page.new(page_number: 1, collection: Recording.all)
-    debugger
+    records = FactoryBot.build_list(:recording, 110)
+    page = TinyPaginate::Page.new(page_number: 1, collection: records)
+
     expect(page.page_number).to eq 1
-    expect(page.collections).to eq Recording.all
+    expect(page.collection).to eq records
   end
 
-  # it "is expected to return correct number of records" do
-  #   expect(TinyPaginate::Page.new(1, Recording.all)).to eq(Recording.first(30))
-  #   expect(TinyPaginate::Page.new(4, Recording.all)).to eq(Recording.last(20))
-  # end
+  it "is expected to return correct number of records" do
+    Recording.destroy_all
+    FactoryBot.create_list(:recording, 110)
 
-  # it "is expected to return first_page when page_number equal 1" do
-  #   expect(Page.new(1, Recording.all).first?).to be_true
-  #   expect(Page.new(2, Recording.all).first?).to be_false
-  # end
+    records = Recording.all
+    first_page = TinyPaginate::Page.new(page_number: 1, collection: records)
+    last_page = TinyPaginate::Page.new(page_number: 4, collection: records)
 
-  # it "is expected to return next_page" do
-  #   expect(Paginate::Page.new(1, Recording.all).next_page_number).to eq(2)
-  # end
+    expect(first_page.records).to eq(records.first(30))
+    expect(last_page.records).to eq(records.last(20))
+
+    Recording.destroy_all
+  end
+
+  it "is expected to be the first page" do
+    Recording.destroy_all
+    FactoryBot.create_list(:recording, 110)
+
+    records = Recording.all
+    first_page = TinyPaginate::Page.new(page_number: 1, collection: records)
+    last_page = TinyPaginate::Page.new(page_number: 4, collection: records)
+
+    expect(first_page.first_page?).to be true
+    expect(last_page.first_page?).to be false
+
+    Recording.destroy_all
+  end
+
+  it "is expected to be the last page" do
+    Recording.destroy_all
+    FactoryBot.create_list(:recording, 110)
+
+    records = Recording.all
+    first_page = TinyPaginate::Page.new(page_number: 1, collection: records)
+    last_page = TinyPaginate::Page.new(page_number: 4, collection: records)
+
+    expect(first_page.last_page?).to be false
+    expect(last_page.last_page?).to be true
+
+    Recording.destroy_all
+  end
+
+  it "is expected to have a previous_page" do
+    Recording.destroy_all
+    FactoryBot.create_list(:recording, 110)
+
+    records = Recording.all
+    first_page = TinyPaginate::Page.new(page_number: 1, collection: records)
+    last_page = TinyPaginate::Page.new(page_number: 4, collection: records)
+
+    expect(first_page.previous_page).to eql nil
+    expect(last_page.previous_page).to eql 3
+
+    Recording.destroy_all
+  end
+
+  it "is expected to have a next_page" do
+    Recording.destroy_all
+    FactoryBot.create_list(:recording, 110)
+
+    records = Recording.all
+    first_page = TinyPaginate::Page.new(page_number: 1, collection: records)
+    last_page = TinyPaginate::Page.new(page_number: 4, collection: records)
+
+    expect(first_page.next_page).to eql(2)
+    expect(last_page.next_page).to eql nil
+
+    Recording.destroy_all
+  end
 end
