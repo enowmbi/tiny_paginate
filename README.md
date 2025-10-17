@@ -44,6 +44,9 @@ In the page where you want to display the records, paste the following entries, 
 </p>  
 ```
 
+#### Change settings
+Upon installation, a tiny_paginate.rb file is created with a single configuration option: `max_records_per_page`, which defaults to 30. You can easily modify this value to suit the needs of your application.
+
 ### Update
 After installation, you can use the most recent version of `tiny_paginate` by running the following commands:
 ```bash
