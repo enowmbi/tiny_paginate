@@ -49,7 +49,7 @@ After installation, you can use the most recent version of `tiny_paginate` by ru
 ```bash
 $ bundle update --conservative tiny_paginate
 ```
-and then execute:`
+and then execute:
 ```bash
 $ rails g tiny_paginate:install
 ```
