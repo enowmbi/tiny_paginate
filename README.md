@@ -6,7 +6,7 @@ tiny_paginate is a lightweight and easy-to-use pagination gem for Ruby on Rails.
 ## Usage
 `tiny_paginate` is simple to use. Follow the steps below to install and use it.
 
-## Installation
+### Installation
 Add this line to your application's Gemfile:
 
 ```ruby
@@ -27,7 +27,7 @@ To work with this gem in your application, execute the following command:
 $ rails g tiny_paginate:install
 ```
 
-### Modify controller
+#### Modify controller
 Here, we'll add the following line to setup page instance variable and extract portion of the records:
  
 ```
@@ -35,7 +35,7 @@ Here, we'll add the following line to setup page instance variable and extract p
 ```
 `set_page_and_extract_partion` returns records and also @page instance variable which is available to the views
 
-### Modify the view
+#### Modify the view
 In the page where you want to display the records, paste the following entries, assumming that you have a model called recording:
 ```
 <p>
@@ -44,13 +44,13 @@ In the page where you want to display the records, paste the following entries, 
 </p>  
 ```
 
-## Update
+### Update
 After installation, you can use the most recent version of `tiny_paginate` by running the following commands:
 ```bash
 $ bundle update --conservative tiny_paginate
 ```
 and then execute:`
-``bash
+```bash
 $ rails g tiny_paginate:install
 ```
 Continue to update the controller and view if you've not done so already.
