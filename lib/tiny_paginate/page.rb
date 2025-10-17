@@ -12,11 +12,11 @@ module TinyPaginate
     end
 
     def next_page
-      page_number + 1 unless last_page?
+      page_number + 1
     end
 
     def previous_page
-      page_number - 1 unless first_page?
+      page_number - 1
     end
 
     def first_page?
