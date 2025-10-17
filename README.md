@@ -1,5 +1,5 @@
 # tiny\_paginate
-  [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) [![Gem Version](https://badge.fury.io/rb/tiny_paginate.png?icon=si%3Arubygems)](https://badge.fury.io/rb/tiny_paginate)
+  [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) [![Gem Version](https://badge.fury.io/rb/tiny_paginate.svg)](https://badge.fury.io/rb/tiny_paginate)
 
 tiny\_paginate is a lightweight and easy-to-use pagination gem for Ruby on Rails. Designed for simplicity and minimal overhead, it provides basic pagination functionality with clean helpers and minimal configuration—perfect for small projects or developers who want to avoid the complexity of larger pagination libraries.
 

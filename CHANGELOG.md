@@ -4,6 +4,7 @@
 ### Bug Fixes
 * Fix CHANGELOG.md path in gemspec
 * Fix broken specs
+* Update badge to reflect current version
 
 ## Features
 * None
