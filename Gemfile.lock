@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    tiny_paginate (0.1.0)
+    tiny_paginate (0.1.1)
       rails (>= 8.0.3)
 
 GEM
@@ -300,7 +300,7 @@ PLATFORMS
   x86_64-linux-musl
 
 DEPENDENCIES
-  debug (>= 1.0.0, >= 0)
+  debug (>= 1.0.0)
   factory_bot_rails (~> 6.5.1)
   puma
   rspec-rails (~> 8.0.2)

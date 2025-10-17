@@ -5,7 +5,7 @@
 RSpec.describe TinyPaginate do
   context "version number" do
     it "is expected to have correct version number" do
-      expect(TinyPaginate::VERSION).to eq("0.1.0")
+      expect(TinyPaginate::VERSION).to eq("0.1.1")
     end
 
     it "is expected not to have wrong version number" do
