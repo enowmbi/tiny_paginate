@@ -5,6 +5,7 @@ require "spec_helper"
 RSpec.describe TinyPaginate::Page do
   it "is expected to return the correct page attributes" do
     records = FactoryBot.build_list(:recording, 110)
+
     page = TinyPaginate::Page.new(page_number: 1, collection: records)
 
     expect(page.page_number).to eq 1
