@@ -3,7 +3,6 @@ class RecordingsController < ApplicationController
 
   # GET /recordings
   def index
-    debugger
     @recordings = set_page_and_extract_portion_from(collection: Recording.all)
   end
 
