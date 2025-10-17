@@ -7,16 +7,16 @@ module TinyPaginate
       @collection = collection
     end
 
-    def recordings
+    def records
       collection.offset(offset).limit(TinyPaginate.max_records_per_page)
     end
 
     def next_page
-      page_number + 1 unless last_page?
+      page_number + 1
     end
 
     def previous_page
-      page_number - 1 unless first_page?
+      page_number - 1
     end
 
     def first_page?
