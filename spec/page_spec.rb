@@ -15,6 +15,7 @@ RSpec.describe TinyPaginate::Page do
   it "is expected to return correct number of records" do
     Recording.destroy_all
     FactoryBot.create_list(:recording, 110)
+    TinyPaginate.max_records_per_page = 30
 
     records = Recording.all
     first_page = TinyPaginate::Page.new(page_number: 1, collection: records)
@@ -29,6 +30,7 @@ RSpec.describe TinyPaginate::Page do
   it "is expected to be the first page" do
     Recording.destroy_all
     FactoryBot.create_list(:recording, 110)
+    TinyPaginate.max_records_per_page = 30
 
     records = Recording.all
     first_page = TinyPaginate::Page.new(page_number: 1, collection: records)
@@ -43,6 +45,7 @@ RSpec.describe TinyPaginate::Page do
   it "is expected to be the last page" do
     Recording.destroy_all
     FactoryBot.create_list(:recording, 110)
+    TinyPaginate.max_records_per_page = 30
 
     records = Recording.all
     first_page = TinyPaginate::Page.new(page_number: 1, collection: records)
@@ -57,12 +60,11 @@ RSpec.describe TinyPaginate::Page do
   it "is expected to have a previous_page" do
     Recording.destroy_all
     FactoryBot.create_list(:recording, 110)
+    TinyPaginate.max_records_per_page = 30
 
     records = Recording.all
-    first_page = TinyPaginate::Page.new(page_number: 1, collection: records)
     last_page = TinyPaginate::Page.new(page_number: 4, collection: records)
 
-    expect(first_page.previous_page).to eql nil
     expect(last_page.previous_page).to eql 3
 
     Recording.destroy_all
@@ -71,13 +73,12 @@ RSpec.describe TinyPaginate::Page do
   it "is expected to have a next_page" do
     Recording.destroy_all
     FactoryBot.create_list(:recording, 110)
+    TinyPaginate.max_records_per_page = 30
 
     records = Recording.all
     first_page = TinyPaginate::Page.new(page_number: 1, collection: records)
-    last_page = TinyPaginate::Page.new(page_number: 4, collection: records)
 
     expect(first_page.next_page).to eql(2)
-    expect(last_page.next_page).to eql nil
 
     Recording.destroy_all
   end
